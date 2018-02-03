@@ -1,0 +1,70 @@
+<odoo>
+    <data>
+
+        <template id="index">
+            <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+            <div class="container">
+                <div class="row" style="margin-top:30px;">
+                    <div class="col-lg-6 col-lg-offset-3">
+                        <form action="/todo/add" method="POST">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <input class="form-control input-lg text-center" placeholder="Create a new todo" type="text" name="todo"></input>
+                        </form>
+                    
+                        <hr/>
+                        <div class="text-center" t-foreach="todos" t-as="todo">
+                            <t t-if="todo.completed">
+                                <del t-esc="todo.todo"></del>
+                            </t>
+                            <t t-else="">
+                                <t t-esc="todo.todo"/>
+                            </t>
+                            <a t-attf-href="/todo/delete/{{todo.id}}" class="btn btn-danger"> x </a>
+                            <a t-attf-href="/todo/edit/{{todo.id}}" class="btn btn-info btn-xs"> update </a>
+                            <a t-attf-href="/todo/complete/{{todo.id}}" class="btn btn-success btn-xs"> Completed? </a>
+                            <hr/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </template>
+
+        <template id="edit">
+            <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+            <div class="container">
+                <div class="row" style="margin-top:30px;">
+                    <div class="col-lg-6 col-lg-offset-3">
+                        <form t-attf-action="/todo/update/{{todo.id}}" method="POST">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <input class="form-control input-lg text-center" placeholder="Create a new todo" type="text" name="todo" t-att-value="todo.todo"></input>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </template>
+        
+
+        
+        <!-- <template id="listing"> -->
+        <!--   <ul> -->
+        <!--     <li t-foreach="objects" t-as="object"> -->
+        <!--       <a t-attf-href="#{ root }/objects/#{ object.id }"> -->
+        <!--         <t t-esc="object.display_name"/> -->
+        <!--       </a> -->
+        <!--     </li> -->
+        <!--   </ul> -->
+        <!-- </template> -->
+        <!-- <template id="object"> -->
+        <!--   <h1><t t-esc="object.display_name"/></h1> -->
+        <!--   <dl> -->
+        <!--     <t t-foreach="object._fields" t-as="field"> -->
+        <!--       <dt><t t-esc="field"/></dt> -->
+        <!--       <dd><t t-esc="object[field]"/></dd> -->
+        <!--     </t> -->
+        <!--   </dl> -->
+        <!-- </template> -->
+    </data>
+</odoo>

@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <!-- Dữ liệu mẫu -->
+        <record id="todo1" model="todo.todo">
+            <field name="todo">Đi học</field>
+        </record>
+
+        <record id="todo2" model="todo.todo">
+            <field name="todo">Đi chơi</field>
+        </record>
+
+        <record id="todo3" model="todo.todo">
+            <field name="todo">Đi làm</field>
+        </record>
+
+        <record id="todo4" model="todo.todo">
+            <field name="todo">Đi ngủ</field>
+        </record>
+        <!--  -->
+        <!--   <record id="object0" model="todo.todo"> -->
+        <!--     <field name="name">Object 0</field> -->
+        <!--     <field name="value">0</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object1" model="todo.todo"> -->
+        <!--     <field name="name">Object 1</field> -->
+        <!--     <field name="value">10</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object2" model="todo.todo"> -->
+        <!--     <field name="name">Object 2</field> -->
+        <!--     <field name="value">20</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object3" model="todo.todo"> -->
+        <!--     <field name="name">Object 3</field> -->
+        <!--     <field name="value">30</field> -->
+        <!--   </record> -->
+        <!--  -->
+        <!--   <record id="object4" model="todo.todo"> -->
+        <!--     <field name="name">Object 4</field> -->
+        <!--     <field name="value">40</field> -->
+        <!--   </record> -->
+        <!--  -->
+    </data>
+</odoo>
